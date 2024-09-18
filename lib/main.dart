@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:source_app/src/messages.g.dart';
 
 void main() {
   runApp(SourceApp());
@@ -41,8 +42,10 @@ class _SourceHomePageState extends State<SourceHomePage> {
   Future<void> _navigateDestination() async {
     try {
       const message =
-          'https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg';
-      await platform.invokeMethod('openDestinationApp', {'message': message});
+          'https://i0.wp.com/www.memelate.com/wp-content/uploads/2021/07/23_Moti-Mia_Aj-robibar_Bangla-Meme-Template.png?fit=640%2C446&ssl=1';
+      // await platform.invokeMethod('openDestinationApp', {'message': message});
+      final ExampleHostApi _api = ExampleHostApi();
+      await _api.sendMessage(message);
     } on PlatformException catch (e) {
       print("Failed to open destination app: '${e.message}'.");
     }
